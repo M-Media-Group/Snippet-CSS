@@ -43,6 +43,9 @@
 		--secondary-darker: #3e73b9;
 		--secondary-text-contrast: #f3f3f3;
 
+		--filter-darker: brightness(85%);
+		--filter-lighter: brightness(115%);
+
 		--link: var(--dark);
 		--link-darker: var(--black);
 
@@ -60,6 +63,9 @@
 				--black: #fff;
 				--dark: #f3f3f3;
 				--light: #222;
+
+				--filter-darker: brightness(115%);
+				--filter-lighter: brightness(85%);
 
 				--box-shadow: 0 0.5rem 3rem rgba(0, 0, 0, 0.3);
 		}
@@ -265,6 +271,8 @@ html {
 		text-rendering: optimizeLegibility;
 		-ms-overflow-style: ms-autohiding-scrollbar;
 		-webkit-overflow-scrolling: touch;
+		background-color: var(--light);
+		color: var(--dark);
 }
 
 body {
@@ -392,13 +400,16 @@ p, ul, ol {
 /* Links
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
 a {
-		color: var(--link);
+		color: inherit;
 }
 
 a:hover {
-		color: var(--link-darker);
+		opacity: 0.7;
 }
 
+p > a {
+	color: inherit;
+}
 
 /* Buttons
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
