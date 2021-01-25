@@ -1,10 +1,9 @@
 /*
-* Skeleton V2.0.4
-* Copyright 2014, Dave Gamache
-* www.getskeleton.com
+* Snippet V2.0.4
+* Copyright 2021, M Media
+* Based on www.getskeleton.com
 * Free to use under the MIT license.
 * http://www.opensource.org/licenses/mit-license.php
-* 12/29/2014
 */
 
 /* Table of contents
@@ -28,16 +27,16 @@
 :root {
     --white: #fff;
     --black: #131313;
-    --dark: #222;
+    --dark: #333;
     --light: #f3f3f3;
-    --gray: #555;
+    --gray: #777;
 
     --primary: #eb4647;
     --primary-darker: #d61819;
     --primary-text-contrast: #f3f3f3;
 
-    --secondary: #3e73b9;
-    --secondary-darker: #3e73b9;
+    --secondary: #246eb9;
+    --secondary-darker: #246eb9;
     --secondary-text-contrast: #f3f3f3;
 
     --filter-darker: brightness(85%);
@@ -51,6 +50,19 @@
 
     /*Line length control for text*/
     --max-text-width: 63rem;
+}
+
+@media print {
+    :root {
+        --white: #fff;
+        --black: #131313;
+        --dark: #000;
+        --light: #fff;
+        --box-shadow: 0 0 1px rgba(0, 0, 0, 0.3);
+    }
+    @page {
+        margin: 0;
+    }
 }
 
 @media (prefers-color-scheme: dark) {
@@ -67,19 +79,6 @@
     }
 }
 
-@media print {
-    :root {
-        --white: #fff;
-        --black: #131313;
-        --dark: #000;
-        --light: #fff;
-        --box-shadow: 0 0 1px rgba(0, 0, 0, 0.3);
-    }
-    @page {
-        margin: 0;
-    }
-}
-
 /* Grid
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
 .container {
@@ -90,7 +89,11 @@
 }
 
 .container > * {
-    padding: 0 20px;
+    padding: 0 2rem;
+}
+
+.container > a {
+    margin: 0 2rem;
 }
 
 .column,
@@ -268,12 +271,13 @@ html {
 }
 
 body {
-    font-size: 1.5em;
+    font-size: 1.6em;
     /* currently ems cause chrome bug misinterpreting rems on body element */
-    line-height: 1.6;
+    line-height: 1.7; /* Fallback if % value doesnt work */
+    line-height: 170%;
     font-weight: 400;
-    /*		Leaving this out because normalize.css uses system fonts, which look better for current use case
-			font-family: "Raleway", "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    /*      Leaving this out because normalize.css uses system fonts, which look better for current use case
+            font-family: "Raleway", "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, sans-serif;
 */
     background-color: var(--light);
     color: var(--dark);
@@ -284,7 +288,6 @@ body {
     body {
         font-size: 1.9em;
         /* currently ems cause chrome bug misinterpreting rems on body element */
-        line-height: 1.75;
     }
 }
 @media print {
@@ -375,12 +378,26 @@ h6 {
 
 p,
 ul,
-ol {
+ol,
+figcaption {
     margin-top: 0;
     max-width: var(--max-text-width);
     word-break: break-word;
-    /*		max-width: 75ch;
+    /*      max-width: 75ch;
 */
+}
+
+figcaption {
+    color: var(--gray);
+    font-size: 80%;
+}
+
+figure {
+   margin: 0;
+}
+
+blockquote {
+    font-weight: 600;
 }
 
 .header-text {
@@ -417,22 +434,20 @@ input[type='submit'],
 input[type='reset'],
 input[type='button'] {
     display: inline-block;
-    height: 38px;
-    padding: 0 30px;
     color: var(--dark);
     text-align: center;
-    font-size: 13px;
-    font-weight: 600;
-    line-height: 37px;
-    letter-spacing: 0.1rem;
-    text-decoration: none;
-    white-space: nowrap;
     background-color: transparent;
     border-radius: var(--border-radius);
     cursor: pointer;
     box-sizing: border-box;
-    border: 1px solid var(--dark);
+    border: 1px solid var(--gray);
     -webkit-appearance: none;
+    padding: 3px 15px;
+    font-size: 80%;
+    font-weight: 600;
+    line-height: 3.7rem;
+    letter-spacing: .1rem;
+    text-decoration: none;
 }
 
 .button:hover,
@@ -489,19 +504,20 @@ input[type='password'],
 textarea,
 select {
     color: inherit; /* 1 */
-    height: 38px;
-    padding: 6px 10px;
+    
+/*    height: 38px;
+*/
     /* The 6px vertically centers text on FF, ignored by Webkit */
     background-color: var(--white);
-    border: 1px solid #d1d1d1;
+    border: 1px solid var(--gray);
     border-radius: var(--border-radius);
     box-shadow: none;
     box-sizing: border-box;
-}
-
-select {
-    padding: 0 10px;
-    /* Webkit does not ignore 6px for select*/
+    padding: 3px 15px;
+    font-size: 80%;
+/*    font-weight: 600;
+*/    line-height: 3.7rem;
+    letter-spacing: .1rem;
 }
 
 /* Removes awkward default styles on some inputs for iOS */
@@ -534,7 +550,7 @@ input[type='url']:focus,
 input[type='password']:focus,
 textarea:focus,
 select:focus {
-    border: 1px solid #33c3f0;
+    border: 1px solid var(--secondary);
     outline: 0;
 }
 
@@ -599,7 +615,7 @@ pre {
 
 code,
 code.hljs {
-    font-size: 80%;
+    font-size: 90%;
     background: var(--white);
     color: var(--black);
     border-radius: var(--border-radius);
@@ -650,6 +666,7 @@ textarea,
 select,
 fieldset {
     margin-bottom: 1.5rem;
+    max-width: 100%;
 }
 
 pre,
@@ -660,7 +677,8 @@ table,
 p,
 ul,
 ol,
-form {
+form,
+figcaption {
     margin-bottom: 2.5rem;
 }
 
@@ -741,6 +759,15 @@ form {
     box-sizing: border-box;
 }
 
+.u-fullscreen-width {
+    margin-left: calc(50% - 50vw);
+    margin-right: calc(50% - 50vw);
+    max-width: 1000%;
+    width: auto;
+    padding-left: 0;
+    padding-right: 0;
+}
+
 .u-max-full-width {
     max-width: 100%;
     box-sizing: border-box;
@@ -798,9 +825,13 @@ hr {
     border-top: 1px solid #e1e1e1;
 }
 
-video, img {
+video, img, iframe {
     max-width: 100%;
     box-sizing: border-box;
+}
+
+iframe {
+  display: block;
 }
 
 /* Clearing
