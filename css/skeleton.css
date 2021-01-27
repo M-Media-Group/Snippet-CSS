@@ -1,11 +1,24 @@
+@charset "UTF-8";
+/**
+ * Calculate the luminance for a color.
+ * See https://www.w3.org/TR/WCAG20-TECHS/G17.html#G17-tests
+ */
+/**
+ * Calculate the contrast ratio between two colors.
+ * See https://www.w3.org/TR/WCAG20-TECHS/G17.html#G17-tests
+ */
+/**
+ * Determine whether to use dark or light text on top of given color.
+ * Returns black for dark text and white for light text.
+ */
 /*
-* Snippet V2.0.4
-* Copyright 2021, M Media
-* Based on www.getskeleton.com
+* Skeleton V2.0.4
+* Copyright 2014, Dave Gamache
+* www.getskeleton.com
 * Free to use under the MIT license.
 * http://www.opensource.org/licenses/mit-license.php
+* 12/29/2014
 */
-
 /* Table of contents
 ––––––––––––––––––––––––––––––––––––––––––––––––––
 - Grid
@@ -23,7 +36,6 @@
 - Clearing
 - Media Queries
 */
-
 :root {
   --primary: #eb4647;
   --primary-darker: #dc1819;
@@ -73,7 +85,6 @@
         --box-shadow: 0 0.5rem 3rem rgba(0, 0, 0, 0.3);
     }
 }
-
 /* Grid
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
 .container {
@@ -396,9 +407,7 @@ p > a:not(.button):hover {
 
 /* Buttons
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
-.button,
-button,
-:is(input[type="submit"], input[type="reset"], input[type="button"]) {
+.button, button, input[type=submit], input[type=reset], input[type=button] {
   display: inline-block;
   color: var(--dark);
   text-align: center;
@@ -409,52 +418,36 @@ button,
   border: 1px solid var(--gray);
   -webkit-appearance: none;
   padding: 3px 15px;
-  padding: 0.2em 1em;
+  padding: 0.6em 1em;
   font-size: 80%;
   font-weight: 600;
-  line-height: 3.7rem;
+  line-height: 170%;
   letter-spacing: 0.1rem;
   text-decoration: none;
   width: auto;
 }
-.button:hover, .button:focus,
-button:hover,
-button:focus,
-:is(input[type="submit"], input[type="reset"], input[type="button"]):hover,
-:is(input[type="submit"], input[type="reset"], input[type="button"]):focus {
+.button:hover, .button:focus, button:hover, button:focus, input[type=submit]:hover, input[type=submit]:focus, input[type=reset]:hover, input[type=reset]:focus, input[type=button]:hover, input[type=button]:focus {
   color: var(--black);
   border-color: var(--black);
   outline: 0;
   opacity: 1;
 }
-.button.button-primary,
-button.button-primary,
-:is(input[type="submit"], input[type="reset"], input[type="button"]).button-primary {
+.button.button-primary, button.button-primary, input[type=submit].button-primary, input[type=reset].button-primary, input[type=button].button-primary {
   color: var(--primary-text-contrast);
   background-color: var(--primary);
   border-color: var(--primary);
 }
-.button.button-primary:hover, .button.button-primary:focus,
-button.button-primary:hover,
-button.button-primary:focus,
-:is(input[type="submit"], input[type="reset"], input[type="button"]).button-primary:hover,
-:is(input[type="submit"], input[type="reset"], input[type="button"]).button-primary:focus {
+.button.button-primary:hover, .button.button-primary:focus, button.button-primary:hover, button.button-primary:focus, input[type=submit].button-primary:hover, input[type=submit].button-primary:focus, input[type=reset].button-primary:hover, input[type=reset].button-primary:focus, input[type=button].button-primary:hover, input[type=button].button-primary:focus {
   color: var(--primary-text-contrast);
   background-color: var(--primary-darker);
   border-color: var(--primary-darker);
 }
-.button.button-secondary,
-button.button-secondary,
-:is(input[type="submit"], input[type="reset"], input[type="button"]).button-secondary {
+.button.button-secondary, button.button-secondary, input[type=submit].button-secondary, input[type=reset].button-secondary, input[type=button].button-secondary {
   color: var(--secondary-text-contrast);
   background-color: var(--secondary);
   border-color: var(--secondary);
 }
-.button.button-secondary:hover, .button.button-secondary:focus,
-button.button-secondary:hover,
-button.button-secondary:focus,
-:is(input[type="submit"], input[type="reset"], input[type="button"]).button-secondary:hover,
-:is(input[type="submit"], input[type="reset"], input[type="button"]).button-secondary:focus {
+.button.button-secondary:hover, .button.button-secondary:focus, button.button-secondary:hover, button.button-secondary:focus, input[type=submit].button-secondary:hover, input[type=submit].button-secondary:focus, input[type=reset].button-secondary:hover, input[type=reset].button-secondary:focus, input[type=button].button-secondary:hover, input[type=button].button-secondary:focus {
   color: var(--secondary-text-contrast);
   background-color: var(--secondary-darker);
   border-color: var(--secondary-darker);
@@ -474,42 +467,58 @@ optgroup {
   box-shadow: none;
   box-sizing: border-box;
   padding: 3px 15px;
+  padding: 0.6em 1em;
   font-size: 80%;
   /*    font-weight: 600;
   */
-  line-height: 3.7rem;
-  letter-spacing: 0.1rem;
+  line-height: 170%;
 }
 
-input[type=email], input[type=number], input[type=search], input[type=text], input[type=tel], input[type=url], input[type=password], input[type=file] {
+input[type=email],
+input[type=number],
+input[type=search],
+input[type=text],
+input[type=tel],
+input[type=url],
+input[type=password],
+input[type=file],
+textarea,
+select {
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
+  display: inline-block;
   color: inherit;
-  /* 1 */
-  /*    height: 38px;
-  */
-  /* The 6px vertically centers text on FF, ignored by Webkit */
   background-color: var(--white);
   border: 1px solid var(--gray);
   border-radius: var(--border-radius);
   box-shadow: none;
   box-sizing: border-box;
   padding: 3px 15px;
+  padding: 0.6em 1em;
   font-size: 80%;
-  /*    font-weight: 600;
-  */
-  line-height: 3.7rem;
-  letter-spacing: 0.1rem;
+  line-height: 170%;
 }
-input[type=email]:focus, input[type=number]:focus, input[type=search]:focus, input[type=text]:focus, input[type=tel]:focus, input[type=url]:focus, input[type=password]:focus, input[type=file]:focus {
+input[type=email]:focus,
+input[type=number]:focus,
+input[type=search]:focus,
+input[type=text]:focus,
+input[type=tel]:focus,
+input[type=url]:focus,
+input[type=password]:focus,
+input[type=file]:focus,
+textarea:focus,
+select:focus {
   border: 1px solid var(--secondary);
   outline: 0;
 }
-input[type=checkbox], input[type=radio] {
+
+input[type=checkbox],
+input[type=radio] {
   display: inline-block;
   margin-right: 1rem;
   margin-left: 1rem;
+  margin-bottom: 0.4rem;
   background-color: var(--gray);
   border-radius: 2px;
   appearance: none;
@@ -521,52 +530,29 @@ input[type=checkbox], input[type=radio] {
   position: relative;
   top: 5px;
 }
-input[type=checkbox][type=radio], input[type=radio][type=radio] {
+input[type=checkbox][type=radio],
+input[type=radio][type=radio] {
   border-radius: 50%;
 }
-input[type=checkbox] + label, input[type=radio] + label {
+input[type=checkbox] + label,
+input[type=radio] + label {
   margin-right: 3rem;
 }
-input[type=checkbox]:checked, input[type=radio]:checked {
+input[type=checkbox]:checked,
+input[type=radio]:checked {
   background-color: var(--primary);
   background: var(--primary) url("data:image/gif;base64,R0lGODlhCwAKAIABAP////3cnSH5BAEKAAEALAAAAAALAAoAAAIUjH+AC73WHIsw0UCjglraO20PNhYAOw==") 3px 3px no-repeat;
 }
-input[type=checkbox]:focus, input[type=radio]:focus {
+input[type=checkbox]:focus,
+input[type=radio]:focus {
   outline: 1px solid rgba(0, 0, 0, 0.2);
-}
-
-textarea,
-select {
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  appearance: none;
-  color: inherit;
-  /* 1 */
-  /*    height: 38px;
-  */
-  /* The 6px vertically centers text on FF, ignored by Webkit */
-  background-color: var(--white);
-  border: 1px solid var(--gray);
-  border-radius: var(--border-radius);
-  box-shadow: none;
-  box-sizing: border-box;
-  padding: 3px 15px;
-  font-size: 80%;
-  /*    font-weight: 600;
-  */
-  line-height: 3.7rem;
-  letter-spacing: 0.1rem;
-}
-textarea:focus,
-select:focus {
-  border: 1px solid var(--secondary);
-  outline: 0;
 }
 
 textarea {
   min-height: 65px;
   padding-top: 6px;
   padding-bottom: 6px;
+  display: block;
 }
 
 label,
@@ -655,7 +641,6 @@ code.hljs {
 table {
   overflow-y: scroll;
   max-width: 100%;
-  display: block;
 }
 table th,
 table td {
@@ -676,7 +661,7 @@ table td:last-child {
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
 button,
 .button {
-  margin-bottom: 1rem;
+  margin-bottom: 1.5rem;
 }
 
 input,
@@ -685,6 +670,7 @@ select,
 fieldset {
   margin-bottom: 1.5rem;
   max-width: 100%;
+  width: 100%;
 }
 
 pre,
@@ -734,7 +720,7 @@ figcaption {
   margin: 0 auto;
   display: block;
 }
-.card :is(h1, h2, h3, h4, h5, h6), .card.small > * {
+.card h1, .card h2, .card h3, .card h4, .card h5, .card h6, .card.small > * {
   margin-top: 0;
 }
 .card.small-card, .card.small {
@@ -768,7 +754,7 @@ figcaption {
 .card > .card-footer {
   padding: 0 3rem;
 }
-.card > :first-child:not(h1, h2, h3, h4, h5, h6) {
+.card > :first-child:not(h1, h2, h3, h4, h5, h6, .row) {
   padding-top: 3rem;
   padding-bottom: 1rem;
   border-top-left-radius: var(--border-radius);
@@ -862,7 +848,7 @@ a.card {
 }
 .bg-primary .button.button-primary,
 .bg-primary button.button-primary,
-.bg-primary :is(input[type="submit"], input[type="reset"], input[type="button"]).button-primary {
+.bg-primary input[type=submit].button-primary, .bg-primary input[type=reset].button-primary, .bg-primary input[type=button].button-primary {
   background-color: var(--primary-darker);
   border-color: var(--primary-darker);
 }
@@ -881,7 +867,7 @@ a.card {
 }
 .bg-secondary .button.button-secondary,
 .bg-secondary button.button-secondary,
-.bg-secondary :is(input[type="submit"], input[type="reset"], input[type="button"]).button-secondary {
+.bg-secondary input[type=submit].button-secondary, .bg-secondary input[type=reset].button-secondary, .bg-secondary input[type=button].button-secondary {
   background-color: var(--secondary-darker);
   border-color: var(--secondary-darker);
 }
