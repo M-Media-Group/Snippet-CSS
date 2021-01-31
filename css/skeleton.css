@@ -288,6 +288,7 @@ h6 {
   margin-bottom: 1rem;
   font-weight: 300;
   max-width: var(--max-text-width);
+  word-break: break-word;
 }
 
 h1 {
@@ -488,7 +489,7 @@ select {
   -moz-appearance: none;
   appearance: none;
   display: inline-block;
-  color: inherit;
+  color: var(--dark);
   background-color: var(--white);
   border: 1px solid var(--gray);
   border-radius: var(--border-radius);
@@ -617,6 +618,7 @@ pre > code {
 
 code {
   font-size: 90%;
+  padding: 0.3rem;
   background: var(--white);
   color: var(--black);
   border-radius: var(--border-radius);
@@ -638,9 +640,13 @@ code.hljs {
 }
 /* Tables
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
+.table-responsive {
+  overflow-x: auto;
+  width: 100%;
+}
+
 table {
-  overflow-y: scroll;
-  max-width: 100%;
+  width: 100%;
 }
 table th,
 table td {
