@@ -286,7 +286,7 @@ h5,
 h6 {
   margin-top: 3rem;
   margin-bottom: 1rem;
-  font-weight: 300;
+  font-weight: 400;
   max-width: var(--max-text-width);
   word-break: break-word;
 }
@@ -652,15 +652,7 @@ table th,
 table td {
   padding: 12px 15px;
   text-align: left;
-  border-bottom: 1px solid #e1e1e1;
-}
-table th:first-child,
-table td:first-child {
-  padding-left: 0;
-}
-table th:last-child,
-table td:last-child {
-  padding-right: 0;
+  border-bottom: 1px solid var(--gray);
 }
 
 /* Spacing
@@ -908,7 +900,7 @@ hr {
   margin-top: 3rem;
   margin-bottom: 3.5rem;
   border-width: 0;
-  border-top: 1px solid #e1e1e1;
+  border-top: 1px solid var(--gray);
 }
 
 video,
